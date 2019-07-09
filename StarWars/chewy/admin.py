@@ -1,7 +1,10 @@
 from django.contrib import admin
+from .models.people import People
+from .models.film import Film
+from .models.planet import Planet
+from .models.transport import Starship, Vehicle
+from .models.species import Species
 
-# Register your models here.
-from .models import People, Film, Planet, Starship, Vehicle, Species
 
 admin.site.register(People)
 admin.site.register(Film)

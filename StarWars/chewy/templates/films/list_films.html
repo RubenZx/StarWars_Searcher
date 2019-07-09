@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Peliculas
+{% endblock %}
+
+{% block content %}
+<main>
+    <div>
+        <ul>
+            {% for film in films %}
+            <li>
+                {{ film.release_date|date }} - {{ film.title }}
+            </li>
+        </ul>
+    </div>
+</main>
+{% endblock %}

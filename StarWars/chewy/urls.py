@@ -1,5 +1,11 @@
 from django.urls import path
+from .views.index import index
 
-from . import views
+# from .views.filmsViews import filmsViews
 
-urlpatterns = [path("", views.index, name="index")]
+# views.app_name = "chewy"
+
+urlpatterns = [
+    path("", index, name="index"),
+    #  path("films/", filmsViews, name="search")
+]
