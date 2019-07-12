@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Chewy
+{% endblock %}
+
+{% block content %}
+<main>
+    <div>
+        {% comment %} <form action= " {% url "search_list" %} ">
+            {% csrf_token %}
+            <!-- {{ form }} -->
+            <!-- <input type="submit" value="Submit"> -->
+            <input type="text" name="search" placeholder="Buscar película...">
+            <button type="submit">Icono de lupa</button>
+        </form> {% endcomment %}
+        
+    </div>
+    <div>
+        
+    </div>
+</main>
+
+{% endblock %}
