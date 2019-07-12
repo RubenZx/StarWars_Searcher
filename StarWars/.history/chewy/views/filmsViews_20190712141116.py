@@ -19,4 +19,5 @@ class SearchTemplateView(TemplateView):
                 | Q(producer__icontains=query)
                 | Q(release_date__icontains=query)
             )  # Filter to find the films that containts the request
+
         return context

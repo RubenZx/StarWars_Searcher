@@ -16,3 +16,4 @@ admin.site.register(Starship)
 admin.site.register(Vehicle)
 admin.site.register(Species)
 admin.site.register(Historic)
+

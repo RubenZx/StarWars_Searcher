@@ -1,4 +1,3 @@
-from chewy.models.people import DateTimeModel
 from chewy.models.people import People
 from chewy.models.planet import Planet
 from chewy.models.film import Film

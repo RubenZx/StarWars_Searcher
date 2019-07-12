@@ -1,9 +1,9 @@
 from django.db import models
-from chewy.models.my_datetime import DateTimeModel
-from chewy.models.people import People
-from chewy.models.planet import Planet
-from chewy.models.transport import Vehicle, Starship
-from chewy.models.species import Species
+from .my_datetime import DateTimeModel
+from .people import People
+from .planet import Planet
+from .transport import Vehicle, Starship
+from .species import Species
 
 
 class Film(DateTimeModel):

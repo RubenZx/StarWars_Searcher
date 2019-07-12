@@ -1,6 +1,5 @@
 from django.views.generic.base import TemplateView
-from chewy.models.historic import Historic
-from django.db.models import Count
+from chewy.models.film import Film
 
 
 class IndexTemplateView(TemplateView):
@@ -8,8 +7,6 @@ class IndexTemplateView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["historic"] = Historic.objects.values("film").annotate(
-            dcount=Count("film")
-        )
+        context["Films"] = Film.objects.all()
 
         return context

@@ -8,8 +8,8 @@ class IndexTemplateView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["historic"] = Historic.objects.values("film").annotate(
-            dcount=Count("film")
-        )
+
+        historic = Historic.objects.filter()
+        historic.
 
         return context
