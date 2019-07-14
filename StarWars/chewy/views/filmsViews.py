@@ -1,22 +1,44 @@
-from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
 from django.db.models import Q
 from chewy.models.film import Film
+from chewy.models.historic import Historic
 
 
-class SearchTemplateView(TemplateView):
+class SearchTemplateView(ListView):
+    model = Film
     template_name = "films/search_list.html"
+    context_object_name = "films"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        query = self.request.GET.get("search", None)
-
-        films = Film.objects.all()
-        if query is not None:
-            context["films"] = films.filter(
+    def get_queryset(self):
+        result = super().get_queryset()
+        query = self.request.GET.get("q")
+        if query:
+            result = Film.objects.filter(
                 Q(title__icontains=query)
                 | Q(opening_crawl__icontains=query)
                 | Q(director__icontains=query)
                 | Q(producer__icontains=query)
                 | Q(release_date__icontains=query)
-            )  # Filter to find the films that containts the request
-        return context
+                | Q(characters__name__icontains=query)
+                | Q(planets__name__icontains=query)
+            ).distinct()
+            for film in result:
+                Historic.objects.create(film=film)
+        else:
+            result = None
+        return result
+
+
+class FilmView(ListView):
+    model = Film
+    template_name = "films/film.html"
+    context_object_name = "film"
+
+    def get_queryset(self):
+        result = super().get_queryset()
+        id = self.kwargs.get("id")
+        if id:
+            result = Film.objects.get(id=id)
+        else:
+            result = None
+        return result
