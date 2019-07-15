@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ film.title }}
+{% endblock %}
+
+{% block content %}
+
+    
+    <div style="float:left"><img class="img-fluid" style="float: left;"src="{% get_static_prefix %}media/images/films/{{ film.id }}.jpg" alt="{{film.title}}"></img></div>
+    <div style="float:right"><p> {{ film.title }} - {{ film.release_date }} </p></div>
+    asdkldaskdas
+    <div style="clear:both"/>
+    
+    {% comment %} <p> {{ film.title }} - {{ film.release_date }} </p>
+    <p> {{ film.opening_crawl}} {% endcomment %}
+
+{% endblock %}

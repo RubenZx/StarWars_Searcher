@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Starjedi';
+    src: url('../fonts/Starjedi.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+ 
+.list-group-item {
+    background-color: transparent;
+    border-top: None;
+    color: #fff;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    top: 20%;
+    bottom: 20%;
+}
+
+#film>h1, #films h2 {
+    font-family: 'Starjedi';
+}
+
+html {
+    font-family: 'Open Sans';
+}

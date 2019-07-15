@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ film.title }}
+{% endblock %}
+
+{% block content %}
+
+<div id="film">
+    <img src="{% get_static_prefix %}media/images/films/{{ film.id }}.jpg" alt="{{film.title}}"
+        class="img-fluid rounded pull-left mr-4"></img>
+    <h1> {{ film.title }} </h1>
+    <span> {{ film.release_date }} </span>
+    <p> &nbsp&nbsp&nbsp&nbsp{{ film.opening_crawl}} </p>
+    <div class="container">
+        
+    </div>
+</div>
+
+{% comment %} <p> {{ film.title }} - {{ film.release_date }} </p>
+<p> {{ film.opening_crawl}} {% endcomment %}
+
+    {% endblock %}

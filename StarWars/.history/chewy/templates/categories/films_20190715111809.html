@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Films
+{% endblock %}
+
+{% block content %}
+{% for f in film %}
+
+
+<div class="row">
+    <div class="column">
+        <img src="{% get_static_prefix %}media/images/films/{{ f.id }}.jpg" alt="{{f.title}}" style="width:100%"  class="img-fluid rounded>
+</div>
+
+{% endfor %}
+
+{% endblock %}

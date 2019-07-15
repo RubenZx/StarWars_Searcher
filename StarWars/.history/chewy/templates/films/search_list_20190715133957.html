@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+List of films
+{% endblock %}
+
+    {% block content %}
+    {% for film in films %}
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="{% get_static_prefix %}media/images/films/{{ film.id }}.jpg" alt="{{film.title}}"
+                        class="img-fluid rounded pull-left mr-4"></img>
+                </div>
+                
+                <div id="film"class="col">
+                    <h1> {{ film.title }} </h1>
+            </div>
+        </div>
+        <div id="film">
+            <h1> {{ film.title }} </h1>
+            {{ film.release_date }}
+        </div>
+    {% empty %}
+    <div id="film"  align="center">
+        <h1>Result doesn't found </h1>
+    </div>
+    {% endfor %}
+{% endblock %}

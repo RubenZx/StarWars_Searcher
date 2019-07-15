@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ film.title }}
+{% endblock %}
+
+{% block content %}
+    <img class="img-fluid" style="float: left;"src="{% get_static_prefix %}media/images/films/{{ film.id }}.jpg" alt="{{film.title}}"></img>
+    {% comment %} <p> {{ film.title }} - {{ film.release_date }} </p>
+    <p> {{ film.opening_crawl}} {% endcomment %}
+    <p style="width: 500px;">
+    <img src="image.png" style="float: right;" />
+    This is some text
+    </p> 
+{% endblock %}

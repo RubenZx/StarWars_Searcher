@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+List of films
+{% endblock %}
+
+    {% block content %}
+    {% if films %}
+    {% for film in films %}
+    <div id="film">
+        <h1> {{ film.title }} </h1>
+        {{ film.release_date }}
+    </div>
+    {% endfor %}
+    {% else %}
+    <div id="film"  align="center">
+        <h1>Result doesn't found </h1>
+    </div>
+    {% endif %}
+{% endblock %}
