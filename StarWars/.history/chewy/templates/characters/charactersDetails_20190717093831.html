@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Characters
+{% endblock %}
+
+{% block content %}
+
+
+    <a href="/characters/{{ charac.id }}" class="list-group-item list-group-item-action">
+    <img src="{% get_static_prefix %}media/images/people/{{ charac.id }}.jpg" alt="{{charac.name}}" style="width:15%"  class="img-fluid rounded pull-left mr-4">
+    <h1> {{ charac.name }} </h1>
+    
+{% endblock %}

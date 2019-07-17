@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Characters
+{% endblock %}
+
+{% block content %}
+
+    <div id="film">
+        <img src="{% get_static_prefix %}media/images/people/{{ charac.id }}.jpg" alt="{{charac.name}}"  class="img-fluid rounded pull-left mr-4">
+        <h1> {{ charac.name }} </h1>
+        <table style="border-collapse: separate; border-spacing: 10px;">
+            <tr>
+                <th> Height </th>
+                <th>{{ charac.height }}</th>
+            </tr>
+            <tr>
+                <th> Mass </th>
+                <th>{{ charac.mass }}</th>
+            </tr>
+            <tr>
+                <th> Hair color </th>
+                <th>{{ charac.hair_color }}</th>
+            </tr>
+            <tr>
+                <th> Skin color </th>
+                <th>{{ charac.skin_color }}</th>
+            </tr>
+            <tr>
+                <th> Eye color </th>
+                <th>{{ charac.eye_color }}</th>
+            </tr>
+            <tr>
+                <th> Birth year </th>
+                <th>{{ charac.birth_year }}</th>
+            </tr>
+            <tr>
+                <th> Gender </th>
+                <th>{{ charac.gender }}</th>
+            </tr>
+            <tr>
+                <th> Homeworld </th>
+                <th>{{ charac.homeworld }}</th>
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}

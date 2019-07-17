@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Characters
+{% endblock %}
+
+{% block content %}
+
+    <div id="film">
+        <img src="{% get_static_prefix %}media/images/people/{{ charac.id }}.jpg" alt="{{charac.name}}"  class="img-fluid rounded pull-left mr-4">
+        <h1> {{ charac.name }} </h1>
+        {% for fields in charac %}
+            {{ fields.value }}
+        {% endfor %}
+        {% comment %} <li> {{ charac.genre }} </li> {% endcomment %}
+    </div>
+{% endblock %}

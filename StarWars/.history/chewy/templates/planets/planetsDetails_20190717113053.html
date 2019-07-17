@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Planets
+{% endblock %}
+
+{% block content %}
+
+    <div id="film">
+        <img src="{% get_static_prefix %}media/images/planets/{{ planet.id }}.jpg" alt="{{planet.name}}"  class="img-fluid rounded pull-left mr-4">
+        <h1> {{ planet.name }} </h1>
+        <table style="border-collapse: separate; border-spacing: 10px;">
+            <tr>
+                <th> Rotation period </th>
+                <th>{{ planet.rotation_period }}</th>
+            </tr>
+            <tr>
+                <th> Orbital period </th>
+                <th>{{ planet.orbital_period }}</th>
+            </tr>
+            <tr>
+                <th> diameter </th>
+                <th>{{ planet.diameter }}</th>
+            </tr>
+            <tr>
+                <th> Climate </th>
+                <th>{{ planet.climate }}</th>
+            </tr>
+            <tr>
+                <th> Eye color </th>
+                <th>{{ planet.eye_color }}</th>
+            </tr>
+            <tr>
+                <th> Birth year </th>
+                <th>{{ planet.birth_year }}</th>
+            </tr>
+            <tr>
+                <th> Gender </th>
+                <th>{{ planet.gender }}</th>
+            </tr>
+            <tr>
+                <th> Homeworld </th>
+                <th>
+                    <a href="/planets/{{ planet.homeworld.id }}" style="color: lightgreen">
+                        {{ planet.homeworld.name }}
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}

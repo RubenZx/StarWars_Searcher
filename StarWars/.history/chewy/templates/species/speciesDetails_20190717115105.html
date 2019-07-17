@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Species
+{% endblock %}
+
+{% block content %}
+
+    <div id="film">
+        <img src="{% get_static_prefix %}media/images/species/{{ species.id }}.jpg" alt="{{species.name}}"  class="img-fluid rounded pull-left mr-4">
+        <h1> {{ species.name }} </h1>
+        <table style="border-collapse: separate; border-spacing: 10px;">
+            <tr>
+                <th> Classification </th>
+                <th>{{ species.classification }}</th>
+            </tr>
+            <tr>
+                <th> Designation </th>
+                <th>{{ species.designation }}</th>
+            </tr>
+            <tr>
+                <th> Average height </th>
+                <th>{{ species.average_height }}</th>
+            </tr>
+            <tr>
+                <th> Skin colors </th>
+                <th>{{ species.skin_colors }}</th>
+            </tr>
+            <tr>
+                <th> Hair colors </th>
+                <th>{{ species.hair_colors }}</th>
+            </tr>
+            <tr>
+                <th> Eye colors </th>
+                <th>{{ species.eye_colors }}</th>
+            </tr>
+            <tr>
+                <th> Average lifespan </th>
+                <th>{{ species.average_lifespan }}</th>
+            </tr>
+            <tr>
+                <th> Language </th>
+                <th>{{ species.language }}</th>
+            </tr>
+            <tr>
+                <th> People </th>
+                <th>
+                    {% for p in species.people %}
+                        <a href="/characters/{{ p.id }}" style="color: lightgreen">
+                            {{ p.name }}
+                        </a>
+                    {% endfor %}
+                    
+                </th>
+            </tr>
+            <tr>
+                <th> Homeworld </th>
+                <th>
+                    <a href="/planets/{{ species.homeworld.id }}" style="color: lightgreen">
+                        {{ species.homeworld.name }}
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}

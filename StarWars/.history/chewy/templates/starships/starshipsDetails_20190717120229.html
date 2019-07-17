@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Starships
+{% endblock %}
+
+{% block content %}
+
+    <div id="film">
+        <img src="{% get_static_prefix %}media/images/starships/{{ starships.id }}.jpg" alt="{{starships.name}}"  class="img-fluid rounded pull-left mr-4">
+        <h1> {{ starships.name }} </h1>
+        <table style="border-collapse: separate; border-spacing: 10px;">
+            <tr>
+                <th> Model </th>
+                <th>{{ starships.model }}</th>
+            </tr>
+            <tr>
+                <th> Manufacturer </th>
+                <th>{{ starships.manufacturer }}</th>
+            </tr>
+            <tr>
+                <th> Cost in credits </th>
+                <th>{{ starships.cost_in_credits }}</th>
+            </tr>
+            <tr>
+                <th> Length </th>
+                <th>{{ starships.length }}</th>
+            </tr>
+            <tr>
+                <th> Hair colors </th>
+                <th>{{ starships.hair_colors }}</th>
+            </tr>
+            <tr>
+                <th> Eye colors </th>
+                <th>{{ starships.eye_colors }}</th>
+            </tr>
+            <tr>
+                <th> Average lifespan </th>
+                <th>{{ starships.average_lifespan }}</th>
+            </tr>
+            <tr>
+                <th> Language </th>
+                <th>{{ starships.language }}</th>
+            </tr>
+            <tr>
+                <th> People </th>
+                <th>
+                    {% for p in starships.people.all %}
+                        <a href="/characters/{{ p.id }}" style="color: lightgreen">
+                            {{ p.name }}
+                        </a>
+                    {% endfor %}
+                    
+                </th>
+            </tr>
+            <tr>
+                <th> Homeworld </th>
+                <th>
+                    <a href="/planets/{{ starships.homeworld.id }}" style="color: lightgreen">
+                        {{ starships.homeworld.name }}
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}
