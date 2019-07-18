@@ -9,13 +9,14 @@ class visits_middleware:
 
         response = self.get_response(request)
         request_path = request.get_full_path()
-        print(request.session["last_pages"])
         try:
-            request.session["last_pages"].append(request_path)
+            saved = request.session["last_pages"]
+            saved.append(request_path)
+            saved = list(dict.fromkeys(saved))
+            request.session["last_pages"] = saved[-10:]
+            print(request.session["last_pages"])
         except Exception:
             request.session["last_pages"] = [request_path]
-
-        # print(request.session["last_pages"])
 
         # Code to be executed for each request/response after
         # the view is called.

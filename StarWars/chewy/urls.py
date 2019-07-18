@@ -1,116 +1,126 @@
 from django.urls import path
 from chewy.views.index import IndexTemplateView
-from chewy.views.filmsViews import SearchTemplateView, FilmView, FilmListView
+from chewy.views.searchViews import SearchTemplateView
 from chewy.views.genericViews import generalGet
-from chewy.models.people import People
-from chewy.models.planet import Planet
-from chewy.models.species import Species
-from chewy.models.transport import Starship, Vehicle
 
 
 urlpatterns = [
     path("", IndexTemplateView.as_view(), name="index"),
     path("search/", SearchTemplateView.as_view(), name="search_list"),
-    path("film/<int:id>/", FilmView.as_view(), name="film"),
-    path("films", FilmListView.as_view(), name="film"),
+    path(
+        "films",
+        generalGet.as_view(),
+        {"model": "Film", "context_name": "film", "template": "films/films.html"},
+        name="films",
+    ),
+    path(
+        "films/<int:id>/",
+        generalGet.as_view(),
+        {
+            "model": "Film",
+            "context_name": "film",
+            "template": "films/filmsDetails.html",
+        },
+        name="film",
+    ),
     path(
         "characters",
         generalGet.as_view(),
         {
-            "name": "characters",
-            "model": People,
+            "model": "People",
             "context_name": "characters",
             "template": "characters/characters.html",
         },
+        name="characters",
     ),
     path(
         "characters/<int:id>/",
         generalGet.as_view(),
         {
-            "name": "characters",
-            "model": People,
+            "model": "People",
             "context_name": "charac",
             "template": "characters/charactersDetails.html",
         },
+        name="character",
     ),
     path(
         "planets",
         generalGet.as_view(),
         {
-            "name": "planets",
-            "model": Planet,
+            "model": "Planet",
             "context_name": "planets",
             "template": "planets/planets.html",
         },
+        name="planets",
     ),
     path(
         "planets/<int:id>/",
         generalGet.as_view(),
         {
-            "name": "planets",
-            "model": Planet,
+            "model": "Planet",
             "context_name": "planet",
             "template": "planets/planetsDetails.html",
         },
+        name="planet",
     ),
     path(
         "species",
         generalGet.as_view(),
         {
-            "name": "species",
-            "model": Species,
+            "model": "Species",
             "context_name": "species",
             "template": "species/species.html",
         },
+        name="species",
     ),
     path(
         "species/<int:id>/",
         generalGet.as_view(),
         {
-            "name": "species",
-            "model": Species,
+            "model": "Species",
             "context_name": "species",
             "template": "species/speciesDetails.html",
         },
+        name="specie",
     ),
     path(
         "starships",
         generalGet.as_view(),
         {
-            "name": "starships",
-            "model": Starship,
+            "model": "Starship",
             "context_name": "starships",
             "template": "starships/starships.html",
         },
+        name="starships",
     ),
     path(
         "starships/<int:id>/",
         generalGet.as_view(),
         {
-            "name": "starships",
-            "model": Starship,
+            "model": "Starship",
             "context_name": "starship",
             "template": "starships/starshipsDetails.html",
         },
+        name="starship",
     ),
     path(
         "vehicles",
         generalGet.as_view(),
         {
-            "name": "vehicles",
-            "model": Vehicle,
+            "model": "Vehicle",
             "context_name": "vehicles",
             "template": "vehicles/vehicles.html",
         },
+        name="vehicles",
     ),
     path(
         "vehicles/<int:id>/",
         generalGet.as_view(),
         {
-            "name": "vehicle",
-            "model": Vehicle,
+            "model": "Vehicle",
             "context_name": "vehicle",
             "template": "vehicles/vehiclesDetails.html",
         },
+        name="vehicle",
     ),
 ]

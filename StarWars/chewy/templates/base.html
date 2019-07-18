@@ -43,12 +43,12 @@
                         Categories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/films"><i class="swg swg-starwars swg-2x"></i> Films</a>
-                        <a class="dropdown-item" href="/characters"><i class="swg swg-leia swg-2x"></i> Characters</a>
-                        <a class="dropdown-item" href="/planets"><i class="swg swg-deathstar swg-2x"></i> Planets</a>
-                        <a class="dropdown-item" href="/species"><i class="swg swg-akbar swg-2x"></i> Species</a>
-                        <a class="dropdown-item" href="/starships"><i class="swg swg-falcon swg-2x"></i> Starships</a>
-                        <a class="dropdown-item" href="/vehicles"><i class="swg swg-atat swg-2x"></i> Vehicles</a>
+                        <a class="dropdown-item" href="{% url 'films' %}"><i class="swg swg-starwars swg-2x"></i> Films</a>
+                        <a class="dropdown-item" href="{% url 'characters' %}"><i class="swg swg-leia swg-2x"></i> Characters</a>
+                        <a class="dropdown-item" href="{% url 'planets' %}"><i class="swg swg-deathstar swg-2x"></i> Planets</a>
+                        <a class="dropdown-item" href="{% url 'species' %}"><i class="swg swg-akbar swg-2x"></i> Species</a>
+                        <a class="dropdown-item" href="{% url 'starships' %}"><i class="swg swg-falcon swg-2x"></i> Starships</a>
+                        <a class="dropdown-item" href="{% url 'vehicles' %}"><i class="swg swg-atat swg-2x"></i> Vehicles</a>
                     </div>
                 </li>
                  <li class="nav-item dropdown">
@@ -57,8 +57,10 @@
                         Historic
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {% for lv in request.session.last_visits %}
-                            <a class="dropdown-item" href="lv"> Pagina  </a>
+                        {% for lv in request.session.last_pages %}
+                            <a class="dropdown-item" href="{{ lv }}"> 
+                                {{ lv|get_name }}  
+                            </a>
                         {% endfor %}
                     </div>
                 </li>

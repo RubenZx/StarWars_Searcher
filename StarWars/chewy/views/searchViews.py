@@ -1,5 +1,4 @@
 from django.views.generic.base import View
-from django.views.generic.list import ListView
 from django.shortcuts import render
 from django.db.models import Q
 from chewy.models.film import Film
@@ -24,26 +23,3 @@ class SearchTemplateView(View):
         else:
             result = None
         return render(request, "films/search_list.html", context={"films": result})
-
-
-class FilmView(ListView):
-    model = Film
-    template_name = "films/filmsDetails.html"
-    context_object_name = "film"
-
-    def get_queryset(self):
-        id = self.kwargs.get("id")
-        if id:
-            result = Film.objects.get(id=id)
-        else:
-            result = None
-        return result
-
-
-class FilmListView(ListView):
-    model = Film
-    template_name = "films/films.html"
-    context_object_name = "film"
-
-    def get_queryset(self):
-        return Film.objects.all()
