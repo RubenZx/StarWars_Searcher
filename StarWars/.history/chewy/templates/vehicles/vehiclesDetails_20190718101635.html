@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load image_exists from chewy_extras  %}
+
+{% block title %}
+Vehicles
+{% endblock %}
+
+{% block content %}
+
+    <div id="film">
+        
+        {% if vehicle.id|image_exists:"vehicles/" %}
+            <img src="{% get_static_prefix %}media/images/vehicles/{{ vehicle.id }}.jpg" alt="{{vehicle.name}}" style="width: 50%;" class="img-fluid rounded pull-left mr-4">
+        {% else %}
+            <div class="img-fluid rounded pull-left mr-4" style="width: 50%;">
+                <i class="swg swg-atat swg-6x"></i>
+            </div>
+            {% comment %} <img src="{% get_static_prefix %}media/images/vehicles/not_found.jpg" alt="not_found" style="width: 50%;" class="img-fluid rounded pull-left mr-4"> {% endcomment %}
+        {% endif %}
+        
+        <h1> {{ vehicle.name }} </h1>
+        <table style="border-collapse: separate; border-spacing: 10px;">
+            <tr>
+                <th> Model </th>
+                <th>{{ vehicle.model }}</th>
+            </tr>
+            <tr>
+                <th> Manufacturer </th>
+                <th>{{ vehicle.manufacturer }}</th>
+            </tr>
+            <tr>
+                <th> Cost in credits </th>
+                <th>{{ vehicle.cost_in_credits }}</th>
+            </tr>
+            <tr>
+                <th> Length </th>
+                <th>{{ vehicle.length }}</th>
+            </tr>
+            <tr>
+                <th> Max atmosphering speed </th>
+                <th>{{ vehicle.max_atmosphering_speed }}</th>
+            </tr>
+            <tr>
+                <th> Crew </th>
+                <th>{{ vehicle.crew }}</th>
+            </tr>
+            <tr>
+                <th> Passengers </th>
+                <th>{{ vehicle.passengers }}</th>
+            </tr>
+            <tr>
+                <th> Cargo capacity </th>
+                <th>{{ vehicle.cargo_capacity }}</th>
+            </tr>
+            <tr>
+                <th> Consumables </th>
+                <th>{{ vehicle.consumables }}</th>
+            </tr>
+            {% comment %} vehicle {% endcomment %}
+            <tr>
+                <th> Vehicle class </th>
+                <th>{{ vehicle.vehicle_class }}</th>
+            </tr>
+            <th> Pilots </th>
+                <th>
+                    {% for p in vehicle.pilots.all %}
+                        <a href="/characters/{{ p.id }}" style="color: lightgreen">
+                            {{ p.name }}
+                        </a>
+                    {% endfor %}
+                    
+                </th>
+            </tr>
+              
+        </table>
+    </div>
+
+{% endblock %}

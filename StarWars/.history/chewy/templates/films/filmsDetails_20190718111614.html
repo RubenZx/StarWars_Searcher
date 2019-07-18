@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ film.title }}
+{% endblock %}
+
+{% block content %}
+
+<div id="film">
+    <img src="{% get_static_prefix %}media/images/films/{{ film.id }}.jpg" alt="{{film.title}}"
+        class="img-fluid rounded pull-left mr-4"></img>
+    <h1> {{ film.title }} </h1>
+    <span> {{ film.release_date }} </span>
+    <p> &nbsp&nbsp&nbsp&nbsp {{ film.opening_crawl}} </p>
+
+    <div class="accordion" id="myaccordion">
+        <div class="card" style="heigth: 30%;" style="width: 18rem;">
+            <div class="card-header" style="background-color: rgba(0,0,0,0.5);" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="false" aria-controls="collapseOne" style="color: white">
+                        Characters 
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#myaccordion">
+                <div class="card-body"  style="background-color: rgba(0,0,0,0.75);">
+                    {% for charac in film.characters.all %}
+                        <a href="/characters/{{ charac.id }}" style="color: lightgreen">
+                            {{ charac.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" style="background-color: rgba(0,0,0,0.5);" id="headingTwo"> 
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white">
+                        Planets
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#myaccordion">
+                <div class="card-body" style="background-color: rgba(0,0,0,0.75);">
+                    {% for planet in film.planets.all %}
+                    <a href="/planets/{{ planet.id }}" style="color: lightgreen">
+                        {{ planet.name }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" style="background-color: rgba(0,0,0,0.5);" id="headingThree ">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white">
+                        Species
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#myaccordion">
+                <div class="card-body" style="background-color: rgba(0,0,0,0.75);">
+                    {% for specie in film.species.all %}
+                    <a href="/species/{{ specie.id }}" style="color: lightgreen">
+                        {{ specie.name }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" style="background-color: rgba(0,0,0,0.5);" id="headingFour" >
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="color: white">
+                        Starships
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#myaccordion">
+                <div class="card-body" style="background-color: rgba(0,0,0,0.75);">
+                    {% for stship in film.starships.all %}
+                    <a href="/starships/{{ stship.id }}" style="color: lightgreen">
+                        {{ stship.name }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" style="background-color: rgba(0,0,0,0.5);" id="headingFive" >
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="color: white">
+                        Vehicles
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#myaccordion">
+                <div class="card-body" style="background-color: rgba(0,0,0,0.75);">
+                    {% for vehicle in film.vehicles.all %}
+                    <a href="/vehicles/{{ vehicle.id }}" style="color: lightgreen">
+                        {{ vehicle.name }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} <div class="row">
+        <div class="col">
+            Characters
+
+            {% for charac in film.characters.all %}
+            </br>
+            <a href="/characters/{{ charac.id }}" style="color: lightgreen">
+                {{ charac.name }}
+            </a>
+            {% endfor %}
+
+        </div>
+        <div class="col">
+            Planets
+
+            {% for planet in film.planets.all %}
+            </br>
+            <a href="/planets/{{ planet.id }}" style="color: lightgreen">
+                {{ planet.name }}
+            </a>
+            {% endfor %}
+
+        </div>
+        <div class="col">
+            Species
+
+            {% for specie in film.species.all %}
+            </br>
+            <a href="/species/{{ specie.id }}" style="color: lightgreen">
+                {{ specie.name }}
+            </a>
+            {% endfor %}
+        </div>
+        <div class="col">
+            Starships
+            {% for stship in film.starships.all %}
+            </br>
+            <a href="/starships/{{ stship.id }}" style="color: lightgreen">
+                {{ stship.name }}
+            </a>
+            {% endfor %}
+        </div>
+        <div class="col">
+            Vehicles
+            {% for vehicle in film.vehicles.all %}
+            </br>
+            <a href="/vehicles/{{ vehicle.id }}" style="color: lightgreen">
+                {{ vehicle.name }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>{% endcomment %}
+</div>
+
+{% endblock %}
