@@ -33,12 +33,12 @@ python3 manage.py runserver
 &nbsp;&nbsp;&nbsp;&nbsp; After this you can open your browser and type the following link [localhost:8000](http://localhost:8000/). You will see the following sections in your *website*:
 * *Logo*, this is the home button
 * *Categories*, a dropdown where you can see the different sections of the website
-⋅⋅* Films
-⋅⋅* Characters 
-⋅⋅* Planets
-⋅⋅* Species
-⋅⋅* Starships
-⋅⋅* Vehicles
+··* ···Films
+··* ···Characters 
+··* ···Planets
+⋅·* ···Species
+··* ···Starships
+··* ···Vehicles
 * *Historic*, another dropdown where you will see the last 10 pages visited in the website
 * *Log in*, this is a button to go to the admin site
 * *Search bar*, to look up a film
