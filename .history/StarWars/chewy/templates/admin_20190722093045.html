@@ -21,13 +21,16 @@
     <div id='stars2'></div>
     <div id='stars3'></div>
 
+    <div class=" box ">
+
     <div class="container d-flex flex-column flex-grow-1 justify-content-center text-white">
-        <div class="text-center ">
+    <div class="text-center ">
                 <a href="/">
                     <i class="swg swg-wookie-2 swg-6x" ></i>
                 </a>
-        </div>
+            </div>
         <div class="row">
+            
             <div class="col auto">
                 <table class="table text-center table-dark" >
                     <thead class="thead-light">
@@ -56,12 +59,13 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
             </form>
         
-            <form  action="{% url 'admin' %}" method="post" class="form-inline my-2 my-lg-0">
-                {% csrf_token %}
-                    <button class="btn btn-outline-success my-2 my-sm-0">Load data</button>
+        
+            <form action="{% url 'logout' %}" class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-success my-2 my-sm-0">Load data</button>
             </form>
-
+            
         </div>
+    </div>
     </div>
       
   

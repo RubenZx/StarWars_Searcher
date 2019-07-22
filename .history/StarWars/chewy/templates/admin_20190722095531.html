@@ -56,11 +56,12 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
             </form>
         
-            <form  action="{% url 'admin' %}" method="post" class="form-inline my-2 my-lg-0">
+        
+            <form  action="submit" method="post" class="form-inline my-2 my-lg-0">
                 {% csrf_token %}
-                    <button class="btn btn-outline-success my-2 my-sm-0">Load data</button>
+                <input type="submit" value="Submit">
+                {% comment %} <button class="btn btn-outline-success my-2 my-sm-0">Load data</button> {% endcomment %}
             </form>
-
         </div>
     </div>
       

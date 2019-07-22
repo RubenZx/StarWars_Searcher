@@ -4,21 +4,20 @@
     font-weight: normal;
     font-style: normal;
 }
-
+ 
 .list-group-item {
     background-color: transparent;
     border-top: None;
     color: #fff;
 }
 
-.list-group {
+.list-group{
     max-height: 625px;
     margin-bottom: 10px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none
 }
-
-.list-group::-webkit-scrollbar {
+.list-group::-webkit-scrollbar { 
     display: none;
 }
 
@@ -35,8 +34,19 @@
     float: none;
 }
 
-#film>h1,
-#films h2 {
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box div {
+    width: 100px;
+    height: 100px;
+}
+        
+
+#film>h1, #films h2 {
     font-family: 'Starjedi';
 }
 
@@ -46,7 +56,8 @@ html {
 
 
 .breadcums-section {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0,0,0,0.25);
     height: 300px;
     border-radius: 15px;
 }
+

@@ -21,7 +21,7 @@ from chewy.views.adminView import adminView, logoutView
 
 urlpatterns = [
     path("", include("chewy.urls")),
-    path("login/", LoginView.as_view(redirect_authenticated_user=True), name="login"),
+    path("login/", LoginView.as_view(), name="login"),
     path("logout/", logoutView.as_view(), name="logout"),
     path("admin/", adminView.as_view(), name="admin"),
 ]

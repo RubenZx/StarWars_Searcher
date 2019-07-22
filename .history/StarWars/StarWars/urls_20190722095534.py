@@ -16,7 +16,7 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import include, path
 from django.contrib.auth.views import LoginView
-from chewy.views.adminView import adminView, logoutView
+from chewy.views.adminView import adminView, logoutView, loadView
 
 
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
     path("login/", LoginView.as_view(redirect_authenticated_user=True), name="login"),
     path("logout/", logoutView.as_view(), name="logout"),
     path("admin/", adminView.as_view(), name="admin"),
+    path(r"^submit", loadView.as_view(), name="load"),
 ]
