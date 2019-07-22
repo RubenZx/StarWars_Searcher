@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
 from django.shortcuts import redirect
+from django.http import HttpResponse
 
 from chewy.models.film import Film
 from chewy.models.people import People
@@ -35,6 +36,8 @@ class logoutView(View):
 
 
 def loadData(request):
+    resp = HttpResponse()
     if request.method == "POST":
         loader.exec()
-    return redirect("admin")
+    return redirect("adminView")
+

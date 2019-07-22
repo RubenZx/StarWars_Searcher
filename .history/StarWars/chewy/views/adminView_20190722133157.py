@@ -3,13 +3,14 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
 from django.shortcuts import redirect
+from django.http import HttpResponse
 
 from chewy.models.film import Film
 from chewy.models.people import People
 from chewy.models.planet import Planet
 from chewy.models.species import Species
 from chewy.models.transport import Starship, Vehicle
-from chewy.utils.manage_data import loader
+
 
 MODELS = {
     "Planets": Planet.objects.count(),
@@ -35,6 +36,5 @@ class logoutView(View):
 
 
 def loadData(request):
+    resp = HttpResponse()
     if request.method == "POST":
-        loader.exec()
-    return redirect("admin")

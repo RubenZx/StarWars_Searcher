@@ -16,7 +16,7 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import include, path
 from django.contrib.auth.views import LoginView
-from chewy.views.adminView import adminView, logoutView, loadData
+from chewy.views.adminView import adminView, logoutView
 
 
 urlpatterns = [
