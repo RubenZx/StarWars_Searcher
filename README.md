@@ -45,4 +45,5 @@ python3 manage.py runserver
 
 ![Main page](.github/image.png)
 
-
+## Built With
+* [Django](https://docs.djangoproject.com/en/2.2/) - The web framework used
