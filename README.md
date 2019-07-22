@@ -8,7 +8,6 @@
 ### Prerequisites
 &nbsp;&nbsp;&nbsp;&nbsp; To execute this project you'll need the following requeriments
 ```
-Postgres database requiered named 'swdb' with username == postgres
 Python >= 3.6.8
 git 
 ```
@@ -30,6 +29,13 @@ python3 manage.py createsuperuser
 ```
 python3 manage.py runserver
 ```
+&nbsp;&nbsp;&nbsp;&nbsp; *Note:* You can load the data in 2 different ways:
+1. Using the following command in the *shell*:
+```
+python3 manage.py load_data
+```
+2. In the admin site there is a button to *load_data*, that will load/update it
+
 &nbsp;&nbsp;&nbsp;&nbsp; After this you can open your browser and type the following link [localhost:8000](http://localhost:8000/). You will see the following sections in your *website*:
 * *Logo*, this is the home button
 * *Categories*, a dropdown where you can see the different sections of the website
